@@ -1,7 +1,7 @@
 name: Demo Environment Secret
 
 on:
-  workflow_dispatch:    # allows manual run from Actions tab
+  workflow_dispatch:
 
 jobs:
   deploy-to-prod:
@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Print environment name
-        run: echo "Environment is: ${{ job.environment }}"
+        run: echo "Environment is: ${{ job.environment.name }}"
 
       - name: Use PROD_API_KEY
-        run: echo "Prod API key is: ${{secrets.PROD_API_KEY}}"
+        run: echo "Prod API key is: ${{ secrets.PROD_API_KEY }}"
