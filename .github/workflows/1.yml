@@ -1,0 +1,13 @@
+name: Demo Repo Secret
+
+on:
+  workflow_dispatch:
+
+jobs:
+  show-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print masked secret
+        run: echo "My secret is: $API_KEY"
+        env:
+          API_KEY: ${{ secrets.API_KEY }}
